@@ -1,0 +1,15 @@
+{
+  "name": "parserBET",
+  "version": "0.0.1",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js"
+  }
+}
