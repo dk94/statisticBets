@@ -10,6 +10,6 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "./node_modules/nodemon/bin/nodemon.js"
+    "start": ".\\node_modules\\nodemon\\bin\\nodemon.js"
   }
 }
