@@ -25,8 +25,6 @@ function scrapeForbet() {
                 const team1Set = $('.schema tr .tnms a').map((i, e) =>
                     e.children[0].data
                 ).get();
-                // console.log(team1);
-                // console.log(team1.length +"Team1");
 
                 const team2Set = $('.schema tr .tnms a').map((i, e) => {
                     if (e.children[2]) {
@@ -39,19 +37,15 @@ function scrapeForbet() {
                 ).get();
                 console.log(countriesSet);
                 let table = "<table class='table'>";
-                for (var i = 0; i < countriesSet.length; i++ ){
-                    table+='<tr>'
-                    +'<td>'+countriesSet[i]+'</td>'
-                    +'<td>'+team1Set[i]+'</td>'
-                    +'<td>'+team2Set[i]+'</td>'
-                    +'<td>'+predictionsSet[i]+'</td>'
-                    +'</tr>'
-                }
-                table+='</table>'
-                console.log(table);
-                resolve (table);
-                // console.log(team2);
-                // console.log(team2.length +"Team2");
+                const forebetPredictions = countriesSet.map((el, i) => {
+                    return {
+                        'Team1': team1Set[i],
+                        'Team2': team2Set[i],
+                        'Prediction': predictionsSet[i]
+                    }
+                });
+
+                resolve(forebetPredictions);
             }
         })
     })
