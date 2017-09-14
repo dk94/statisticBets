@@ -1,13 +1,16 @@
 var request = require('request');
 var cheerio = require('cheerio');
-const Promise = require('bluebird');
 const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-today';
+
+const namesOfTeams = {
+    'Fulham FC' : 'Fulham FC',
+    'Hull City FC' : 'Hull City'
+};
 
 // The structure of our request call
 // The first parameter is our URL
 // The callback function takes 3 parameters, an error, response status code and the html
-function scrapeForbet() {
-    var table;
+function scrapeForbet(fixtures) {
 
     return new Promise(function (resolve, reject) {
 
@@ -28,15 +31,13 @@ function scrapeForbet() {
 
                 const team2Set = $('.schema tr .tnms a').map((i, e) => {
                     if (e.children[2]) {
-                        return e.children[2].data;
+                        return e.children[2].data.trim();
                     }
                 }).get();
 
                 const predictionsSet = $('.schema tr .predict').map((i, e) =>
                     e.children[0].data
                 ).get();
-                console.log(countriesSet);
-                let table = "<table class='table'>";
                 const forebetPredictions = countriesSet.map((el, i) => {
                     return {
                         'Team1': team1Set[i],
@@ -44,10 +45,21 @@ function scrapeForbet() {
                         'Prediction': predictionsSet[i]
                     }
                 });
+                fixtures.forEach((fixture)=>{
+                    const homeTeam = fixture.homeTeamName;
+                    const awayTeam = fixture.awayTeamName;
 
-                resolve(forebetPredictions);
+                    forebetPredictions.forEach((prediction)=>{
+                        if (namesOfTeams[homeTeam] === prediction['Team1'] && namesOfTeams[awayTeam] === prediction['Team2']){
+                            fixture['predictionForebet'] = prediction['Prediction'];
+                        }
+
+                    })
+                    resolve(fixtures);
+                });
             }
-        })
+        });
+
     })
 }
 module.exports = scrapeForbet;

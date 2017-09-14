@@ -1,0 +1,19 @@
+html
+    head
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', rel='stylesheet', integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
+        title!= title
+    body
+        table(class='table')
+            thead
+            th Tournament
+            th HT
+            th AT
+            th Prediction_Forbet
+            th Prediction_Vitisport
+            for fixture in fixturesWithAllPredictions
+                tr
+                    td!= fixture.natLeague
+                    td!= fixture.homeTeamName
+                    td!= fixture.awayTeamName
+                    td!= fixture.predictionForebet
+                    td!= fixture.predictionVitisport

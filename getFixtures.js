@@ -1,5 +1,5 @@
 var request = require('request');
-const leagues = ['CL', 'ELC'];
+const leagues = ['ELC'];
 module.exports = function getFixtures() {
     return leagues.map((el) => {
         return new Promise(function (resolve, reject) {

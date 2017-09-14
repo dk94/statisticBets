@@ -1,12 +1,15 @@
 var request = require('request');
 var cheerio = require('cheerio');
-const Promise = require('bluebird');
 const url = 'http://www.vitisport.ru/index.php?clanek=quicktips&sekce=fotbal&lang=en';
 
+const namesOfTeams = {
+    'Fulham FC' : 'Fulham FC',
+    'Hull City FC' : 'Hull City AFC'
+};
 // The structure of our request call
 // The first parameter is our URL
 // The callback function takes 3 parameters, an error, response status code and the html
-function scrapeVitisport() {
+function scrapeVitisport(fixtures) {
     var table;
 
     return new Promise(function (resolve, reject) {
@@ -24,23 +27,20 @@ function scrapeVitisport() {
                         return e.parent
                 }
                 ).get();
+                fixtures.forEach((fixture)=> {
+                    const homeTeam = fixture.homeTeamName;
+                    const awayTeam = fixture.awayTeamName;
+                    for (var i = 0; i < countriesSet.length; i++) {
 
-                let table = "<table class='table'>";
-
-                for (var i = 0; i < countriesSet.length; i++) {
-                    table += '<tr>'
-                        + '<td>' + new Date() + '</td>'
-                        + '<td>' + countriesSet[i].children[1].children[0].children[0].data + '</td>'
-                        + '<td>' + countriesSet[i].children[2].children[0].children[0].data + '</td>'
-                        + '<td>' + countriesSet[i].children[9].children[0].data + '</td>'
-                        + '</tr>'
-                   
-                }
-                table += '</table>'
-                console.log(table);
-                resolve (table);
-                // console.log(team2);
-                // console.log(team2.length +"Team2");
+                        const Team1 = countriesSet[i].children[1].children[0].children[0].data;
+                        const Team2 = countriesSet[i].children[2].children[0].children[0].data;
+                        const prediction = countriesSet[i].children[9].children[0].data;
+                        if (namesOfTeams[homeTeam] === Team1 && namesOfTeams[awayTeam] === Team2){
+                            fixture['predictionVitisport'] = prediction;
+                        }
+                    }
+                });
+                resolve (fixtures);
             }
         })
     })
