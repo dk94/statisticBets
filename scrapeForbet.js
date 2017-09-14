@@ -1,10 +1,13 @@
 var request = require('request');
 var cheerio = require('cheerio');
-const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-today';
+const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-tomorrow';
 
 const namesOfTeams = {
     'Fulham FC' : 'Fulham FC',
-    'Hull City FC' : 'Hull City'
+    'Hull City FC' : 'Hull City',
+    'FC Valenciennes' : 'Valenciennes FC',
+    'RC Lens' : 'RC Lens'
+
 };
 
 // The structure of our request call

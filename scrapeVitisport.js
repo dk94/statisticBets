@@ -3,8 +3,10 @@ var cheerio = require('cheerio');
 const url = 'http://www.vitisport.ru/index.php?clanek=quicktips&sekce=fotbal&lang=en';
 
 const namesOfTeams = {
-    'Fulham FC' : 'Fulham FC',
-    'Hull City FC' : 'Hull City AFC'
+    'Fulham FC': 'Fulham FC',
+    'Hull City FC': 'Hull City AFC',
+    'FC Valenciennes': 'Valenciennes FC',
+    'RC Lens' : 'Racing Club de Lens'
 };
 // The structure of our request call
 // The first parameter is our URL
@@ -23,11 +25,10 @@ function scrapeVitisport(fixtures) {
 
                 // Finally, we'll define the variables we're going to capture
                 const countriesSet = $('.tabulkaquick .standardbunka').map((i, e) => {
-                    if (e.children[0].data === '13.09')
                         return e.parent
                 }
                 ).get();
-                fixtures.forEach((fixture)=> {
+                fixtures.forEach((fixture) => {
                     const homeTeam = fixture.homeTeamName;
                     const awayTeam = fixture.awayTeamName;
                     for (var i = 0; i < countriesSet.length; i++) {
@@ -35,12 +36,12 @@ function scrapeVitisport(fixtures) {
                         const Team1 = countriesSet[i].children[1].children[0].children[0].data;
                         const Team2 = countriesSet[i].children[2].children[0].children[0].data;
                         const prediction = countriesSet[i].children[9].children[0].data;
-                        if (namesOfTeams[homeTeam] === Team1 && namesOfTeams[awayTeam] === Team2){
+                        if (namesOfTeams[homeTeam] === Team1 && namesOfTeams[awayTeam] === Team2) {
                             fixture['predictionVitisport'] = prediction;
                         }
                     }
                 });
-                resolve (fixtures);
+                resolve(fixtures);
             }
         })
     })

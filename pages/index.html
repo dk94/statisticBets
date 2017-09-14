@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="parseMatches.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="bundle.js"></script>
 </head>
+
 <body>
-<div class="container">
-    <h1 class="text-center">Parser</h1>
-<div class="row justify-content-start">
-    <div class="col-4 text-center">
-        <button type="button" class="load btn btn-primary">Load data</button>
+    <div class="container-fluid">
+        <h1 class="text-center">Parser</h1>
+        <div class="row justify-content-start">
+            <div class="col-4 text-center">
+                <button type="button" class="load btn btn-primary">Load Fixtures</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-primary">Load data from DB</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="save btn btn-primary">Save data to DB</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 info">
+                <div class="text-center">
+                    <span class="loading"></span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-4 text-center">
-        <button type="button" class="btn btn-primary">Parse Matches</button>
-    </div>
-    <div class="col-4 text-center">
-        <button type="button" class="btn btn-primary">Primary</button>
-    </div>
-</div>
-</div>
-<script>
-    document.querySelector('.load').addEventListener('click',
-        function(){getData();})
-</script>
+    <script>
+        document.querySelector('.load').addEventListener('click',
+            function () {
+                getData();
+            })
+        document.querySelector('.save').addEventListener('click',
+            function () {
+                saveData();
+            })
+    </script>
 </body>
+
 </html>
