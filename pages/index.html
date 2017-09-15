@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://use.fontawesome.com/667ee46532.js"></script>
     <script src="bundle.js"></script>
 </head>
 
@@ -16,10 +16,10 @@
         <h1 class="text-center">Parser</h1>
         <div class="row justify-content-start">
             <div class="col-4 text-center">
-                <button type="button" class="load btn btn-primary">Load Fixtures</button>
+                <button type="button" class="loadFixtures btn btn-primary">Load Fixtures</button>
             </div>
             <div class="col-4 text-center">
-                <button type="button" class="btn btn-primary">Load data from DB</button>
+                <button type="button" class="load btn btn-primary">Load data from DB</button>
             </div>
             <div class="col-4 text-center">
                 <button type="button" class="save btn btn-primary">Save data to DB</button>
@@ -34,14 +34,19 @@
         </div>
     </div>
     <script>
-        document.querySelector('.load').addEventListener('click',
+        document.querySelector('.loadFixtures').addEventListener('click',
             function () {
                 getData();
-            })
+            });
         document.querySelector('.save').addEventListener('click',
             function () {
                 saveData();
+            });
+        document.querySelector('.load').addEventListener('click',
+            function () {
+                loadData();
             })
+        
     </script>
 </body>
 

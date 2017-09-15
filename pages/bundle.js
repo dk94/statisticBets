@@ -69,13 +69,20 @@
 
 const parseM = __webpack_require__(1);
 const save= __webpack_require__(2);
+const load= __webpack_require__(3);
+__webpack_require__(4);
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
 function getData() {
-    document.querySelector('.loading').innerHTML="<img src='https://m.popkey.co/dc6bd3/Llgbv.gif'/>";
+    if (document.querySelector('.loading')) {
+        document.querySelector('.loading').innerHTML = "<img src='https://m.popkey.co/dc6bd3/Llgbv.gif'/>";
+    }
+    else{
+         document.querySelector('.info').innerHTML = "<div class='text-center'><img style='margin:0 auto' src='https://m.popkey.co/dc6bd3/Llgbv.gif'/></div>";
+    }
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -85,7 +92,7 @@ function getData() {
             xhttpPost.send(this.responseText);
             xhttpPost.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.querySelector('.info').innerHTML=this.responseText;
+                    document.querySelector('.info').innerHTML = this.responseText;
                 }
             }
         }
@@ -103,13 +110,38 @@ function saveData() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-           document.querySelector('info').innerHTML ="<h2>Data is saved</h2>"
+           document.querySelector('.info').innerHTML ="<h2 class='text-center'>Data is saved</h2>"
         }
     };
     xhttp.open("GET", "save", true);
     xhttp.send();
 }
 window.saveData = saveData;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+function loadData() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+           document.querySelector('.info').innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "load", true);
+    xhttp.send();
+}
+window.loadData = loadData;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+function editItem(e) {
+    console.log(e)
+}
+window.editItem = editItem;
 
 /***/ })
 /******/ ]);

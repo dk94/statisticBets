@@ -4,6 +4,7 @@ var path = require('path');
 var port = process.env.port || 1340;
 const getFixtures = require('./getFixtures');
 const insertData = require('./insertDataToDb');
+const selectDataFromDb = require('./selectDataFromDb');
 var bodyParser = require('body-parser');
 app.use(express.static(path.join(__dirname, 'pages')));
 
@@ -19,7 +20,15 @@ app.get('/scraper', function (req, res) {
         })
 });
 app.get('/save', function (req, res) {
-    insertData(fixtures);
+    Promise.all(insertData(fixtures))
+    .then(()=>res.send('Success'))
+    .catch(()=>res.send('Error'));
+});
+app.get('/load', function (req, res) {
+    
+    selectDataFromDb()
+    .then((result)=>res.render('data.jade', { fixturesWithAllPredictions: result }));
+    
 });
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
