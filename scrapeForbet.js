@@ -1,19 +1,12 @@
 var request = require('request');
 var cheerio = require('cheerio');
-const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-tomorrow';
-
-const namesOfTeams = {
-    'Fulham FC' : 'Fulham FC',
-    'Hull City FC' : 'Hull City',
-    'FC Valenciennes' : 'Valenciennes FC',
-    'RC Lens' : 'RC Lens'
-
-};
+const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-today';
+const leagues = ['Fi1', 'Ve1', 'Es1', 'Ru1', 'No3', 'Cy1', 'Se2', 'Co1'];
 
 // The structure of our request call
 // The first parameter is our URL
 // The callback function takes 3 parameters, an error, response status code and the html
-function scrapeForbet(fixtures) {
+function scrapeForbet() {
 
     return new Promise(function (resolve, reject) {
 
@@ -28,6 +21,7 @@ function scrapeForbet(fixtures) {
                 const countriesSet = $('.schema tr .shortTag').map((i, e) =>
                     e.children[0].data
                 ).get();
+
                 const team1Set = $('.schema tr .tnms a').map((i, e) =>
                     e.children[0].data
                 ).get();
@@ -38,28 +32,45 @@ function scrapeForbet(fixtures) {
                     }
                 }).get();
 
-                const predictionsSet = $('.schema tr .predict').map((i, e) =>
+                const predictionsSet = $(".schema tr[class*='tr_'] td:nth-child(5)").map((i, e) =>
+
                     e.children[0].data
                 ).get();
-                const forebetPredictions = countriesSet.map((el, i) => {
-                    return {
-                        'Team1': team1Set[i],
-                        'Team2': team2Set[i],
-                        'Prediction': predictionsSet[i]
-                    }
-                });
-                fixtures.forEach((fixture)=>{
-                    const homeTeam = fixture.homeTeamName;
-                    const awayTeam = fixture.awayTeamName;
+                const result = $(".schema tr[class*='tr_'] .lscr_td span:nth-child(1)").map((i, e) => {
 
-                    forebetPredictions.forEach((prediction)=>{
-                        if (namesOfTeams[homeTeam] === prediction['Team1'] && namesOfTeams[awayTeam] === prediction['Team2']){
-                            fixture['predictionForebet'] = prediction['Prediction'];
+                    if (e.children[0].children[0])
+                        return (e.children[0].children[0].data);
+                    else
+                        return('No result');
+
+
+                }
+                ).get();
+
+                console.log(result.length);
+                let choseItems = [];
+                const forebetPredictions = countriesSet.forEach((el, i) => {
+                    leagues.forEach((element) => {
+
+                        if (element === el) {
+                            if (predictionsSet[i]) {
+                                choseItems.push({
+                                    'date':new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+                                    'natLeague': el,
+                                    'homeTeamName': team1Set[i],
+                                    'awayTeamName': team2Set[i],
+                                    'predictionForebet': predictionsSet[i],
+                                    'result':result[i]
+                                });
+                            }
+
                         }
 
-                    })
-                    resolve(fixtures);
+                    });
+
                 });
+
+                resolve(choseItems);
             }
         });
 

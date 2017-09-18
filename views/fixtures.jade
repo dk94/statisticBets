@@ -5,15 +5,19 @@ html
     body
         table(class='table fixtures')
             thead
+            th Date
             th Tournament
             th HT
             th AT
             th Prediction_Forbet
             th Prediction_Vitisport
+            th Result
             for fixture in fixturesWithAllPredictions
-                tr
+                tr  
+                    td!= fixture.date
                     td!= fixture.natLeague
                     td!= fixture.homeTeamName
                     td!= fixture.awayTeamName
                     td!= fixture.predictionForebet
                     td!= fixture.predictionVitisport
+                    td!= fixture.result

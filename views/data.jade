@@ -15,6 +15,7 @@ html
             th Settings
             for fixture in fixturesWithAllPredictions
                 tr(style='background-color:gray')
+                    td!= fixture.date
                     td!= fixture.natLeague
                     td!= fixture.homeTeamName
                     td!= fixture.awayTeamName

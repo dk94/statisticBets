@@ -5,7 +5,7 @@ module.exports = function insertData(data) {
         if (err) throw err;
         var cust = db.collection("customers2");
         return data.map((document) => {
-            cust.update(document, Object.assign(document, {result:'Not played' }), { upsert: true, ordered:true})   
+            cust.update({homeTeamName:document.homeTeamName,awayTeamName:document.awayTeamName,date:document.date}, document, { upsert: true, ordered:true})   
         })
 
     });
