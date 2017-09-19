@@ -2,7 +2,7 @@ html
     head
         link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', rel='stylesheet', integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
         title Fixtures
-    body
+    body(style='oveflow-x:visible')
         table(class='table fixtures')
             thead
             th Date
@@ -10,7 +10,13 @@ html
             th HT
             th AT
             th Prediction_Forbet
+            th Prediction Probs Team1
+            th Prediction Probs Draw
+            th Prediction Probs Team2
             th Prediction_Vitisport
+            th Prediction Probs Team1
+            th Prediction Probs Draw
+            th Prediction Probs Team2
             th Result
             for fixture in fixturesWithAllPredictions
                 tr  
@@ -19,5 +25,11 @@ html
                     td!= fixture.homeTeamName
                     td!= fixture.awayTeamName
                     td!= fixture.predictionForebet
+                    td!= fixture.predictionForbetProbT1
+                    td!= fixture.predictionForbetProbDraw
+                    td!= fixture.predictionForbetProbT2
                     td!= fixture.predictionVitisport
+                    td!= fixture.predictionVitiProbT1
+                    td!= fixture.predictionVitiProbDraw
+                    td!= fixture.predictionVitiProbT2
                     td!= fixture.result

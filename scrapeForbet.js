@@ -31,6 +31,31 @@ function scrapeForbet() {
                         return e.children[2].data.trim();
                     }
                 }).get();
+                const predictionProbsTeam1 = $(".schema tr[class*='tr_']>td:nth-child(2)").map((i, e) => {
+                    if (e.children[0].children) {
+                        return e.children[0].children[0].data
+                    }
+                    else {
+                        return e.children[0].data
+                    }
+                }).get();
+                const predictionProbsDraw = $(".schema tr[class*='tr_'] td:nth-child(3)").map((i, e) => {
+                    if (e.children[0].children) {
+                        return e.children[0].children[0].data
+                    }
+                    else {
+                        return e.children[0].data
+                    }
+                }).get();
+                const predictionProbsTeam2 = $(".schema tr[class*='tr_'] td:nth-child(4)").map((i, e) => {
+                    if (e.children[0].children) {
+                        return e.children[0].children[0].data
+                    }
+                    else {
+                        return e.children[0].data
+                    }
+                }).get();
+
 
                 const predictionsSet = $(".schema tr[class*='tr_'] td:nth-child(5)").map((i, e) =>
 
@@ -41,13 +66,12 @@ function scrapeForbet() {
                     if (e.children[0].children[0])
                         return (e.children[0].children[0].data);
                     else
-                        return('No result');
+                        return ('No result');
 
 
                 }
                 ).get();
 
-                console.log(result.length);
                 let choseItems = [];
                 const forebetPredictions = countriesSet.forEach((el, i) => {
                     leagues.forEach((element) => {
@@ -55,12 +79,15 @@ function scrapeForbet() {
                         if (element === el) {
                             if (predictionsSet[i]) {
                                 choseItems.push({
-                                    'date':new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+                                    'date': new Date().toJSON().slice(0, 10).replace(/-/g, '/'),
                                     'natLeague': el,
                                     'homeTeamName': team1Set[i],
                                     'awayTeamName': team2Set[i],
                                     'predictionForebet': predictionsSet[i],
-                                    'result':result[i]
+                                    'predictionForbetProbT1': predictionProbsTeam1[i],
+                                    'predictionForbetProbDraw': predictionProbsDraw[i],
+                                    'predictionForbetProbT2': predictionProbsTeam2[i],
+                                    'result': result[i]
                                 });
                             }
 

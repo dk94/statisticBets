@@ -3,8 +3,10 @@ var cheerio = require('cheerio');
 const url = 'http://www.vitisport.ru/index.php?clanek=quicktips&sekce=fotbal&lang=en';
 
 const namesOfTeams = {
-    'Inter Turku': 'FC Inter Turku',
-    'FC Lahti':'FC Lahti'
+    'Valencia CF': 'Valencia CF',
+    'Málaga CF': 'Malaga CF',
+    'GAIS': 'GAIS Göteborg',
+    'IK Frej': 'IK Frej Täby'
 };
 // The structure of our request call
 // The first parameter is our URL
@@ -32,12 +34,18 @@ function scrapeVitisport(fixtures) {
                     const awayTeam = fixture.awayTeamName;
                     for (var i = 0; i < countriesSet.length; i++) {
 
-                        if (countriesSet[i].children[1].children[0].children.length>0 && countriesSet[i].children[2].children[0].children.length>0 ) {
+                        if (countriesSet[i].children[1].children[0].children.length > 0 && countriesSet[i].children[2].children[0].children.length > 0) {
                             const Team1 = countriesSet[i].children[1].children[0].children[0].data;
                             const Team2 = countriesSet[i].children[2].children[0].children[0].data;
+                            const predictionProbT1 = countriesSet[i].children[6].children[0].data;
+                            const predictionProbDraw = countriesSet[i].children[7].children[0].data;
+                            const predictionProbT2 = countriesSet[i].children[8].children[0].data;
                             const prediction = countriesSet[i].children[9].children[0].data;
                             if (namesOfTeams[homeTeam] === Team1 && namesOfTeams[awayTeam] === Team2) {
                                 fixture['predictionVitisport'] = prediction;
+                                fixture['predictionVitiProbT1'] = predictionProbT1;
+                                fixture['predictionVitiProbDraw'] = predictionProbDraw;
+                                fixture['predictionVitiProbT2'] = predictionProbT2;
                             }
                         }
                     }
