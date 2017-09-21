@@ -6,7 +6,10 @@ const namesOfTeams = {
     'Sevilla FC': 'Sevilla',
     'UD Las Palmas': 'Las Palmas',
     'GAIS': 'GAIS Göteborg',
-    'IK Frej': 'IK Frej Täby'
+    'IK Frej': 'IK Frej Täby',
+    'Getafe CF':'Getafe',
+    'Celta de Vigo':'Celta de Vigo'
+    
 };
 
 
@@ -43,9 +46,12 @@ function scrapeResults(fixturesWithViti) {
                             request(newUrl, function (error, response, html) {
                                 if (!error) {
                                     var $= cheerio.load(html);
-                                    const pinnacleSpan = ($("tr span:contains('Pinnacle')"));
-                                    const pinnacleTr  = pinnacleSpan.parent;
-                                    console.log(pinnacleTr)
+                                    const pinnacleSpan = ($("tr span:contains('Pinnacle')").get());
+                                    const pinnacleTr  = pinnacleSpan[0].parent.parent.parent;
+                                    const td1=pinnacleTr.children[1];
+                                    const td2=pinnacleTr.children[2];
+                                    const td2=pinnacleTr.children[3];
+                                    console.log(pinnacleTr.children[1].children[0].children[0].children[0],pinnacleTr.children[2],pinnacleTr.children[3])
 
                                 }
                             })
