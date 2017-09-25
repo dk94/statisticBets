@@ -6,7 +6,9 @@ const namesOfTeams = {
     'Valencia CF': 'Valencia CF',
     'Málaga CF': 'Malaga CF',
     'GAIS': 'GAIS Göteborg',
-    'IK Frej': 'IK Frej Täby'
+    'IK Frej': 'IK Frej Täby',
+    'Hobro IK': 'Hobro IK',
+    'Brøndby IF':'Brondby IF'
 };
 // The structure of our request call
 // The first parameter is our URL

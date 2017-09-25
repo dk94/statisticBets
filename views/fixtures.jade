@@ -17,6 +17,9 @@ html
             th Prediction Probs Team1
             th Prediction Probs Draw
             th Prediction Probs Team2
+            th Odds Team1
+            th Odds Draw
+            th Odds Team2
             th Result
             for fixture in fixturesWithAllPredictions
                 tr  
@@ -32,4 +35,7 @@ html
                     td!= fixture.predictionVitiProbT1
                     td!= fixture.predictionVitiProbDraw
                     td!= fixture.predictionVitiProbT2
+                    td!= fixture.homeTeamOdds
+                    td!= fixture.drawOdds
+                    td!= fixture.awayTeamOdds
                     td!= fixture.result

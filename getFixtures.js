@@ -10,7 +10,7 @@ module.exports = function getFixtures() {
     return scrapeForbetAsync()
     .then((forbetFixtures)=>scrapeVitisportAsync(forbetFixtures))
     .then((fixturesWithViti)=>scrapeResults(fixturesWithViti))
-    .then((fixturesWithViti)=>fixturesWithViti)
+    .then((fixturesWithOdds)=>fixturesWithOdds)
 }
 
 
