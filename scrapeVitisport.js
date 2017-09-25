@@ -8,7 +8,9 @@ const namesOfTeams = {
     'GAIS': 'GAIS Göteborg',
     'IK Frej': 'IK Frej Täby',
     'Hobro IK': 'Hobro IK',
-    'Brøndby IF':'Brondby IF'
+    'Brøndby IF':'Brondby IF',
+    'Akhmat Groznyi':'Terek Groznyi',
+    'Rubin Kazan':'FK Rubin Kazan'
 };
 // The structure of our request call
 // The first parameter is our URL

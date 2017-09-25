@@ -14,7 +14,9 @@ const namesOfTeams = {
     'Dynamo Moscow': 'Dynamo Moskva',
     'CSKA Moscow': 'CSKA Moskva',
     'Hobro IK': 'Hobro IK',
-    'Brøndby IF':'Brøndby'
+    'Brøndby IF':'Brøndby',
+    'Akhmat Groznyi':'FC Akhmat Grozny',
+    'Rubin Kazan':'Rubin'
     
 };
 

@@ -83,7 +83,7 @@ function scrapeForbet() {
                                     'natLeague': el,
                                     'homeTeamName': team1Set[i],
                                     'awayTeamName': team2Set[i],
-                                    'predictionForebet': predictionsSet[i],
+                                    'predictionForbet': predictionsSet[i],
                                     'predictionForbetProbT1': predictionProbsTeam1[i],
                                     'predictionForbetProbDraw': predictionProbsDraw[i],
                                     'predictionForbetProbT2': predictionProbsTeam2[i],

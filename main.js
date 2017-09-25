@@ -21,7 +21,7 @@ app.get('/scraper', function (req, res) {
 });
 app.get('/save', function (req, res) {
     Promise.all(insertData(fixtures))
-    .then(()=>res.send('Success'))
+    .then((result)=>{console.log(result);res.send('Success')})
     .catch(()=>res.send('Error'));
 });
 app.get('/load', function (req, res) {
