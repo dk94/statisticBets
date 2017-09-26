@@ -4,10 +4,30 @@ module.exports = function selectDataFromDb() {
     return new Promise((resolve) => {
         connection(function (err, db) {
             if (err) throw err;
-            var cust = db.collection("customers2");
 
-            var promise = cust.find().toArray()
-                .then((result) => resolve(result))
+            let collections = [
+                'forebetStrategy',
+                'forebetValueBetsBiggerThan1',
+                'forebetValueBetsBiggerThan3',
+                'forebetValueBetsBiggerThan5',
+                'forebetValueBetsBiggerThan7',
+                'vitisportStrategy',
+                'vitisportValueBetsBiggerThan1',
+                'vitisportValueBetsBiggerThan3',
+                'vitisportValueBetsBiggerThan5',
+                'vitisportValueBetsBiggerThan6',
+            ];
+
+            Promise.all(collections.map((collection) => {
+                let dbCollection = db.collection(collection);
+                return dbCollection.find().toArray()
+
+            }))
+            .then((result)=>{
+                resolve(result)
+            })
+
+
         })
     })
 }

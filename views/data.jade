@@ -2,29 +2,225 @@ html
     head
         link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', rel='stylesheet', integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
         title Fixtures
-    body
-   - var templates =0;
-        table(class='table fixtures')
-            thead
-            th Tournament
-            th HT
-            th AT
-            th Prediction_Forbet
-            th Prediction_Vitisport
-            th Match Result
-            th Settings
-            for fixture in fixturesWithAllPredictions
-                tr(style='background-color:gray')
-                    td!= fixture.date
-                    td!= fixture.natLeague
-                    td!= fixture.homeTeamName
-                    td!= fixture.awayTeamName
-                    td!= fixture.predictionForebet
-                    td!= fixture.predictionVitisport
-                    td!= fixture.result
-                    td
-                        i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
-                        i(class='remove fa fa-times', style='float:right')
+    body(style='margin:100px 0')
+        div(class='new_table')
+            h1(class='text-center') Forbet Strategy
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th HomeOdds
+                th DrawOdds
+                th AwayOdds
+                th Prediction
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[0]
+                    tr(style='background-color:gray')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionForbetProbT1
+                        td!= fixture.predictionForbetProbDraw
+                        td!= fixture.predictionForbetProbT2
+                        td!= fixture.homeTeamOdds
+                        td!= fixture.drawOdds
+                        td!= fixture.awayTeamOdds
+                        td!= fixture.predictionForbet
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')
+
+       
                    
+        div(class='new_table')
+            h1(class='text-center') Forbet Value Bets Bigger Than 1%
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th HomeOdds
+                th DrawOdds
+                th AwayOdds
+                th Prediction
+                th Value
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[1]
+                    tr(style='background-color:gray')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionForbetProbT1
+                        td!= fixture.predictionForbetProbDraw
+                        td!= fixture.predictionForbetProbT2
+                        td!= fixture.homeTeamOdds
+                        td!= fixture.drawOdds
+                        td!= fixture.awayTeamOdds
+                        td!= fixture.prediction
+                        td!= fixture.value
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')
+
+        div(class='new_table')
+            h1(class='text-center') Forbet Value Bets Bigger Than 3%
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th HomeOdds
+                th DrawOdds
+                th AwayOdds
+                th Prediction
+                th Value
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[2]
+                    tr(style='background-color:gray')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionForbetProbT1
+                        td!= fixture.predictionForbetProbDraw
+                        td!= fixture.predictionForbetProbT2
+                        td!= fixture.homeTeamOdds
+                        td!= fixture.drawOdds
+                        td!= fixture.awayTeamOdds
+                        td!= fixture.prediction
+                        td!= fixture.value
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')
     
+
+        div(class='new_table')
+            h1(class='text-center') Forbet Value Bets Bigger Than 5%
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th HomeOdds
+                th DrawOdds
+                th AwayOdds
+                th Prediction
+                th Value
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[3]
+                    tr(style='background-color:gray')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionForbetProbT1
+                        td!= fixture.predictionForbetProbDraw
+                        td!= fixture.predictionForbetProbT2
+                        td!= fixture.homeTeamOdds
+                        td!= fixture.drawOdds
+                        td!= fixture.awayTeamOdds
+                        td!= fixture.prediction
+                        td!= fixture.value
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')
+        
+        div(class='new_table')
+            h1(class='text-center') Forbet Value Bets Bigger Than 7%
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th HomeOdds
+                th DrawOdds
+                th AwayOdds
+                th Prediction
+                th Value
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[4]
+                    tr(style='background-color:gray')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionForbetProbT1
+                        td!= fixture.predictionForbetProbDraw
+                        td!= fixture.predictionForbetProbT2
+                        td!= fixture.homeTeamOdds
+                        td!= fixture.drawOdds
+                        td!= fixture.awayTeamOdds
+                        td!= fixture.prediction
+                        td!= fixture.value
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')   
+         
+        div(class='new_table')
+            h1(class='text-center') Vitisport Strategy
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th HomeOdds
+                th DrawOdds
+                th AwayOdds
+                th Prediction
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[5]
+                    tr(style='background-color:gray')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionVitiProbT1
+                        td!= fixture.predictionVitiProbDraw
+                        td!= fixture.predictionVitiProbT2
+                        td!= fixture.homeTeamOdds
+                        td!= fixture.drawOdds
+                        td!= fixture.awayTeamOdds
+                        td!= fixture.predictionVitisport
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')
     

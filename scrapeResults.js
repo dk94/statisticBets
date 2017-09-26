@@ -16,7 +16,9 @@ const namesOfTeams = {
     'Hobro IK': 'Hobro IK',
     'Brøndby IF':'Brøndby',
     'Akhmat Groznyi':'FC Akhmat Grozny',
-    'Rubin Kazan':'Rubin'
+    'Rubin Kazan':'Rubin',
+    'Barnsley':'Barnsley',
+    'QPR':'Queens Park Rangers'
     
 };
 

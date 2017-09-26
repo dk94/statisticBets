@@ -8,9 +8,11 @@ const namesOfTeams = {
     'GAIS': 'GAIS Göteborg',
     'IK Frej': 'IK Frej Täby',
     'Hobro IK': 'Hobro IK',
-    'Brøndby IF':'Brondby IF',
-    'Akhmat Groznyi':'Terek Groznyi',
-    'Rubin Kazan':'FK Rubin Kazan'
+    'Brøndby IF': 'Brondby IF',
+    'Akhmat Groznyi': 'Terek Groznyi',
+    'Rubin Kazan': 'FK Rubin Kazan',
+    'Barnsley': 'Barnsley FC',
+    'QPR': 'Queens Park Rangers'
 };
 // The structure of our request call
 // The first parameter is our URL
@@ -46,10 +48,10 @@ function scrapeVitisport(fixtures) {
                             const predictionProbT2 = countriesSet[i].children[8].children[0].data;
                             const prediction = countriesSet[i].children[9].children[0].data;
                             if (namesOfTeams[homeTeam] === Team1 && namesOfTeams[awayTeam] === Team2) {
-                                fixture['predictionVitisport'] = prediction;
-                                fixture['predictionVitiProbT1'] = predictionProbT1;
-                                fixture['predictionVitiProbDraw'] = predictionProbDraw;
-                                fixture['predictionVitiProbT2'] = predictionProbT2;
+                                fixture['predictionVitisport'] = prediction.toString().indexOf(0);
+                                fixture['predictionVitiProbT1'] = parseInt(predictionProbT1);
+                                fixture['predictionVitiProbDraw'] = parseInt(predictionProbDraw);
+                                fixture['predictionVitiProbT2'] = parseInt(predictionProbT2);
                             }
                         }
                     }
