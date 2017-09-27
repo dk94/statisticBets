@@ -18,7 +18,9 @@ const namesOfTeams = {
     'Akhmat Groznyi':'FC Akhmat Grozny',
     'Rubin Kazan':'Rubin',
     'Barnsley':'Barnsley',
-    'QPR':'Queens Park Rangers'
+    'QPR':'Queens Park Rangers',
+    'Sheffield Utd' : 'Sheffield  United',
+    'Wolverhampton' : 'Wolverhampton Wanderers'
     
 };
 
@@ -40,19 +42,16 @@ function scrapeResults(fixturesWithViti) {
                     else
                         return 'Not a match';
 
-
-
-
                 }
                 ).get();
-
                 var promises = [];
                 fixturesWithViti.forEach((fixture) => {
 
                             todayOddsMatches.forEach((match) => {
-
+                         
                                 if (namesOfTeams[fixture.homeTeamName] === match.home.trim() && namesOfTeams[fixture.awayTeamName] === match.away.trim()) {
                                     const newUrl = `http://www.hot-odds.com${match.href}`;
+                                    
                                     promises.push(new Promise(function (resolve, reject) {
                                         request(newUrl, function (error, response, html) {
                                             if (!error) {

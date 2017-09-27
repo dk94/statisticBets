@@ -12,7 +12,9 @@ const namesOfTeams = {
     'Akhmat Groznyi': 'Terek Groznyi',
     'Rubin Kazan': 'FK Rubin Kazan',
     'Barnsley': 'Barnsley FC',
-    'QPR': 'Queens Park Rangers'
+    'QPR': 'Queens Park Rangers',
+    'Sheffield Utd' : 'Sheffield United',
+    'Wolverhampton' : 'Wolverhampton Wanderers'
 };
 // The structure of our request call
 // The first parameter is our URL
@@ -41,14 +43,14 @@ function scrapeVitisport(fixtures) {
                     for (var i = 0; i < countriesSet.length; i++) {
 
                         if (countriesSet[i].children[1].children[0].children.length > 0 && countriesSet[i].children[2].children[0].children.length > 0) {
+
                             const Team1 = countriesSet[i].children[1].children[0].children[0].data;
                             const Team2 = countriesSet[i].children[2].children[0].children[0].data;
                             const predictionProbT1 = countriesSet[i].children[6].children[0].data;
                             const predictionProbDraw = countriesSet[i].children[7].children[0].data;
                             const predictionProbT2 = countriesSet[i].children[8].children[0].data;
-                            const prediction = countriesSet[i].children[9].children[0].data;
                             if (namesOfTeams[homeTeam] === Team1 && namesOfTeams[awayTeam] === Team2) {
-                                fixture['predictionVitisport'] = prediction.toString().indexOf(0);
+                                fixture['predictionVitisport'] = definePrediction(predictionProbT1,  predictionProbDraw,  predictionProbT2)
                                 fixture['predictionVitiProbT1'] = parseInt(predictionProbT1);
                                 fixture['predictionVitiProbDraw'] = parseInt(predictionProbDraw);
                                 fixture['predictionVitiProbT2'] = parseInt(predictionProbT2);
@@ -61,4 +63,18 @@ function scrapeVitisport(fixtures) {
         })
     })
 }
+
+function definePrediction(probsH, probsD, probsA){
+    if(probsH > probsD){
+        if(probsH > probsA)
+            return 1;
+        else
+            return 2;
+    }
+    else if(probsD>probsA)
+        return 'X'
+    else 
+        return 2;
+}
+
 module.exports = scrapeVitisport;

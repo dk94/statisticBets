@@ -5,6 +5,7 @@ var port = process.env.port || 1340;
 const getFixtures = require('./getFixtures');
 const insertData = require('./insertDataToDb');
 const selectDataFromDb = require('./selectDataFromDb');
+const outputCalculation = require('./outputCalculation');
 var bodyParser = require('body-parser');
 app.use(express.static(path.join(__dirname, 'pages')));
 
@@ -27,7 +28,10 @@ app.get('/save', function (req, res) {
 app.get('/load', function (req, res) {
     
     selectDataFromDb()
-    .then((result)=>res.render('data.jade', { fixturesWithAllPredictions: result }));
+    .then((result)=>{
+        const calulatedResult = outputCalculation(result);
+        res.render('data.jade', { fixturesWithAllPredictions: calulatedResult }
+    )})
     
 });
 

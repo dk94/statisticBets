@@ -5,6 +5,14 @@ html
     body(style='margin:100px 0')
         div(class='new_table')
             h1(class='text-center') Forbet Strategy
+            if fixturesWithAllPredictions[0].bank<0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " "+fixturesWithAllPredictions[0].bank+"$"
+            else
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " "+fixturesWithAllPredictions[0].bank+"$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                    span(style='color:gray font-weight:bold')!= " "+fixturesWithAllPredictions[0].percentOfSuccessfullMatches*100+"%"
             table(class='table fixtures')
                 thead
                 th Date
@@ -14,14 +22,12 @@ html
                 th Probability Home
                 th Probability Draw
                 th Probability Away
-                th HomeOdds
-                th DrawOdds
-                th AwayOdds
+                th Odds
                 th Prediction
                 th Match Result
                 th Settings
                 for fixture in fixturesWithAllPredictions[0]
-                    tr(style='background-color:gray')
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -29,10 +35,8 @@ html
                         td!= fixture.predictionForbetProbT1
                         td!= fixture.predictionForbetProbDraw
                         td!= fixture.predictionForbetProbT2
-                        td!= fixture.homeTeamOdds
-                        td!= fixture.drawOdds
-                        td!= fixture.awayTeamOdds
-                        td!= fixture.predictionForbet
+                        td!= fixture.odds
+                        td!= fixture.prediction
                         td!= fixture.result
                         td
                             i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
@@ -42,6 +46,12 @@ html
                    
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 1%
+            if fixturesWithAllPredictions[1].bank<0
+                h3(class='text-center') Bank
+                    span(style='color:red')!= " "+fixturesWithAllPredictions[1].bank+"$"
+            else
+                h3(class='text-center') Bank
+                    span(style='color:green')!= " "+fixturesWithAllPredictions[1].bank+"$"
             table(class='table fixtures')
                 thead
                 th Date
@@ -51,9 +61,7 @@ html
                 th Probability Home
                 th Probability Draw
                 th Probability Away
-                th HomeOdds
-                th DrawOdds
-                th AwayOdds
+                th Odds
                 th Prediction
                 th Value
                 th Match Result
@@ -67,9 +75,7 @@ html
                         td!= fixture.predictionForbetProbT1
                         td!= fixture.predictionForbetProbDraw
                         td!= fixture.predictionForbetProbT2
-                        td!= fixture.homeTeamOdds
-                        td!= fixture.drawOdds
-                        td!= fixture.awayTeamOdds
+                        td!= fixture.odds
                         td!= fixture.prediction
                         td!= fixture.value
                         td!= fixture.result
@@ -79,6 +85,12 @@ html
 
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 3%
+            if fixturesWithAllPredictions[2].bank<0
+                h3(class='text-center') Bank
+                    span(style='color:red')!= " "+fixturesWithAllPredictions[2].bank+"$"
+            else
+                h3(class='text-center') Bank
+                    span(style='color:green')!= " "+fixturesWithAllPredictions[2].bank+"$"
             table(class='table fixtures')
                 thead
                 th Date
@@ -88,9 +100,7 @@ html
                 th Probability Home
                 th Probability Draw
                 th Probability Away
-                th HomeOdds
-                th DrawOdds
-                th AwayOdds
+                th Odds
                 th Prediction
                 th Value
                 th Match Result
@@ -104,9 +114,7 @@ html
                         td!= fixture.predictionForbetProbT1
                         td!= fixture.predictionForbetProbDraw
                         td!= fixture.predictionForbetProbT2
-                        td!= fixture.homeTeamOdds
-                        td!= fixture.drawOdds
-                        td!= fixture.awayTeamOdds
+                        td!= fixture.odds
                         td!= fixture.prediction
                         td!= fixture.value
                         td!= fixture.result
@@ -117,6 +125,12 @@ html
 
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 5%
+            if fixturesWithAllPredictions[3].bank<0
+                h3(class='text-center') Bank
+                    span(style='color:red')!= " "+fixturesWithAllPredictions[3].bank+"$"
+            else
+                h3(class='text-center') Bank
+                    span(style='color:green')!= " "+fixturesWithAllPredictions[3].bank+"$"
             table(class='table fixtures')
                 thead
                 th Date
@@ -126,9 +140,7 @@ html
                 th Probability Home
                 th Probability Draw
                 th Probability Away
-                th HomeOdds
-                th DrawOdds
-                th AwayOdds
+                th Odds
                 th Prediction
                 th Value
                 th Match Result
@@ -142,9 +154,7 @@ html
                         td!= fixture.predictionForbetProbT1
                         td!= fixture.predictionForbetProbDraw
                         td!= fixture.predictionForbetProbT2
-                        td!= fixture.homeTeamOdds
-                        td!= fixture.drawOdds
-                        td!= fixture.awayTeamOdds
+                        td!= fixture.odds
                         td!= fixture.prediction
                         td!= fixture.value
                         td!= fixture.result
@@ -154,6 +164,12 @@ html
         
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 7%
+            if fixturesWithAllPredictions[4].bank<0
+                h3(class='text-center') Bank
+                    span(style='color:red')!= " "+fixturesWithAllPredictions[4].bank+"$"
+            else
+                h3(class='text-center') Bank
+                    span(style='color:green')!= " "+fixturesWithAllPredictions[4].bank+"$"
             table(class='table fixtures')
                 thead
                 th Date
@@ -163,9 +179,7 @@ html
                 th Probability Home
                 th Probability Draw
                 th Probability Away
-                th HomeOdds
-                th DrawOdds
-                th AwayOdds
+                th Odds
                 th Prediction
                 th Value
                 th Match Result
@@ -179,9 +193,7 @@ html
                         td!= fixture.predictionForbetProbT1
                         td!= fixture.predictionForbetProbDraw
                         td!= fixture.predictionForbetProbT2
-                        td!= fixture.homeTeamOdds
-                        td!= fixture.drawOdds
-                        td!= fixture.awayTeamOdds
+                        td!= fixture.odds
                         td!= fixture.prediction
                         td!= fixture.value
                         td!= fixture.result
@@ -191,6 +203,14 @@ html
          
         div(class='new_table')
             h1(class='text-center') Vitisport Strategy
+            if fixturesWithAllPredictions[5].bank<0
+                h3(class='text-center') Bank
+                    span(style='color:red')!= " "+fixturesWithAllPredictions[5].bank+"$"
+            else
+                h3(class='text-center') Bank
+                    span(style='color:green')!= " "+fixturesWithAllPredictions[5].bank+"$"
+            h3(class='text-center') Percent Of Successfull Matches
+                    span(style='color:green')!= " "+fixturesWithAllPredictions[5].percentOfSuccessfullMatches+"%"
             table(class='table fixtures')
                 thead
                 th Date
@@ -200,9 +220,7 @@ html
                 th Probability Home
                 th Probability Draw
                 th Probability Away
-                th HomeOdds
-                th DrawOdds
-                th AwayOdds
+                th Odds
                 th Prediction
                 th Match Result
                 th Settings
@@ -215,10 +233,8 @@ html
                         td!= fixture.predictionVitiProbT1
                         td!= fixture.predictionVitiProbDraw
                         td!= fixture.predictionVitiProbT2
-                        td!= fixture.homeTeamOdds
-                        td!= fixture.drawOdds
-                        td!= fixture.awayTeamOdds
-                        td!= fixture.predictionVitisport
+                        td!= fixture.odds
+                        td!= fixture.prediction
                         td!= fixture.result
                         td
                             i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')

@@ -42,7 +42,7 @@ function forebetStrategy(data, db) {
 
 
     return data.map((document) => {
-
+        const odds = defineTypeOfOdds(document.predictionForbet, document.homeTeamOdds, document.drawOdds, document.awayTeamOdds);
         return dbForebet.update(
             {
                 homeTeamName: document.homeTeamName,
@@ -54,13 +54,11 @@ function forebetStrategy(data, db) {
                 awayTeamName: document.awayTeamName,
                 date: document.date,
                 natLeague: document.natLeague,
-                predictionForbet: document.predictionForbet,
                 predictionForbetProbT1: document.predictionForbetProbT1,
                 predictionForbetProbDraw: document.predictionForbetProbDraw,
                 predictionForbetProbT2: document.predictionForbetProbT2,
-                homeTeamOdds: document.homeTeamOdds,
-                drawOdds: document.drawOdds,
-                awayTeamOdds: document.awayTeamOdds,
+                prediction: document.predictionForbet,
+                odds,
                 result: document.result
 
             },
@@ -75,7 +73,7 @@ function vitisportStrategy(data, db) {
 
 
     return data.map((document) => {
-
+        const odds = defineTypeOfOdds(document.predictionVitisport, document.homeTeamOdds, document.drawOdds, document.awayTeamOdds);
         return dbVitisport.update(
             {
                 homeTeamName: document.homeTeamName,
@@ -87,13 +85,11 @@ function vitisportStrategy(data, db) {
                 awayTeamName: document.awayTeamName,
                 date: document.date,
                 natLeague: document.natLeague,
-                predictionVitisport: document.predictionVitisport,
                 predictionVitiProbT1: document.predictionVitiProbT1,
                 predictionVitiProbDraw: document.predictionVitiProbDraw,
                 predictionVitiProbT2: document.predictionVitiProbT2,
-                homeTeamOdds: document.homeTeamOdds,
-                drawOdds: document.drawOdds,
-                awayTeamOdds: document.awayTeamOdds,
+                prediction: document.predictionVitisport,
+                odds,
                 result: document.result
 
             },
@@ -111,10 +107,11 @@ function forebetValueBets(data, db, nameOfDb, tollerance) {
         const valueForHomeTeam = document.predictionForbetProbT1 - (1 / document.homeTeamOdds * 100);
         const valueForDraw = document.predictionForbetProbDraw - (1 / document.drawOdds * 100);
         const valueForAwayTeam = document.predictionForbetProbT2 - (1 / document.awayTeamOdds * 100);
+        let [prediction, value] = checkTollerance(tollerance, valueForHomeTeam, valueForDraw, valueForAwayTeam);
+        const odds = defineTypeOfOdds(prediction, document.homeTeamOdds, document.drawOdds, document.awayTeamOdds);
 
-        let[ prediction, value ] = checkTollerance(tollerance, valueForHomeTeam, valueForDraw, valueForAwayTeam);
-      
         if (prediction) {
+
             return dbforebetValueBetsBiggerThan.update(
                 {
                     homeTeamName: document.homeTeamName,
@@ -130,9 +127,7 @@ function forebetValueBets(data, db, nameOfDb, tollerance) {
                     predictionForbetProbT1: document.predictionForbetProbT1,
                     predictionForbetProbDraw: document.predictionForbetProbDraw,
                     predictionForbetProbT2: document.predictionForbetProbT2,
-                    homeTeamOdds: document.homeTeamOdds,
-                    drawOdds: document.drawOdds,
-                    awayTeamOdds: document.awayTeamOdds,
+                    odds,
                     prediction,
                     value,
                     result: document.result
@@ -152,12 +147,12 @@ function vitisportValueBets(data, db, nameOfDb, tollerance) {
     const dbVitisportValueBetsBiggerThan = db.collection(nameOfDb);
 
     return data.map((document) => {
-   
+
         const valueForHomeTeam = +document.predictionVitiProbT1 - (1 / document.homeTeamOdds * 100);
         const valueForDraw = +document.predictionVitiProbDraw - (1 / document.drawOdds * 100);
         const valueForAwayTeam = +document.predictionVitiProbT2 - (1 / document.awayTeamOdds * 100);
-    
-        let[ prediction, value ] = checkTollerance(tollerance, valueForHomeTeam, valueForDraw, valueForAwayTeam);
+        let [prediction, value] = checkTollerance(tollerance, valueForHomeTeam, valueForDraw, valueForAwayTeam);
+        const odds = defineTypeOfOdds(prediction, document.homeTeamOdds, document.drawOdds, document.awayTeamOdds);
         if (prediction) {
             return dbVitisportValueBetsBiggerThan.update(
                 {
@@ -174,9 +169,7 @@ function vitisportValueBets(data, db, nameOfDb, tollerance) {
                     predictionVitiProbT1: document.predictionVitiProbT1,
                     predictionVitiProbDraw: document.predictionVitiProbDraw,
                     predictionVitiProbT2: document.predictionVitiProbT2,
-                    homeTeamOdds: document.homeTeamOdds,
-                    drawOdds: document.drawOdds,
-                    awayTeamOdds: document.awayTeamOdds,
+                    odds,
                     result: document.result,
                     prediction,
                     value
@@ -216,5 +209,15 @@ function checkTollerance(tollerance, valueForHomeTeam, valueForDraw, valueForAwa
             value = valueForAwayTeam;
         }
     }
-    return new Array(prediction,value);
+    return new Array(prediction, value);
+}
+
+function defineTypeOfOdds(prediction, oddsH, oddsD, oddsA) {
+    if (prediction == '1')
+        return oddsH;
+    else if (prediction == 'X')
+        return oddsD;
+    else
+        return oddsA;
+
 }
