@@ -6,6 +6,7 @@ const getFixtures = require('./getFixtures');
 const insertData = require('./insertDataToDb');
 const selectDataFromDb = require('./selectDataFromDb');
 const outputCalculation = require('./outputCalculation');
+const helper = require('./helper');
 var bodyParser = require('body-parser');
 app.use(express.static(path.join(__dirname, 'pages')));
 
@@ -34,6 +35,14 @@ app.get('/load', function (req, res) {
     )})
     
 });
+
+app.get('/help', function (req, res) {
+    helper();
+
+    
+});
+
+
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies

@@ -139,6 +139,7 @@ function forebetValueBets(data, db, nameOfDb, tollerance) {
                 }
             )
         }
+        
 
     })
 }

@@ -8,6 +8,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://use.fontawesome.com/667ee46532.js"></script>
+    <script src='help.js'></script>
     <script src="bundle.js"></script>
 </head>
 
@@ -23,6 +24,9 @@
             </div>
             <div class="col-4 text-center">
                 <button type="button" class="save btn btn-primary">Save data to DB</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="help btn btn-primary">Help</button>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -46,7 +50,10 @@
             function () {
                 loadData();
             })
-        
+        document.querySelector('.help').addEventListener('click',
+            function () {
+                help();
+            })
     </script>
 </body>
 
