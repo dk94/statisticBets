@@ -1,7 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
-const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-sweden/allsvenskan/standing';
-const url2 = 'http://www.vitibet.com/index.php?clanek=analyzy&sekce=fotbal&liga=svedsko&lang=en';
+const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-sweden/superettan/standing';
+const url2 = 'http://www.vitibet.com/index.php?clanek=analyzy&sekce=fotbal&liga=svedskodruha&lang=en';
 
 // The structure of our request call
 // The first parameter is our URL
@@ -22,8 +22,11 @@ function helper() {
                 if (!error) {
                     var $ = cheerio.load(html);
 
-                    const countriesSet2 = $(".tabulkaporadi tr").map((i, e) =>
-                        e.children[1].children[0].children[1].data.trim()
+                    const countriesSet2 = $(".tabulkaporadi tr").map((i, e) =>{
+                        if(e.children[1].children[0].children[1]){
+                            return e.children[1].children[0].children[1].data.trim();
+                        }
+                    }
                     ).get();
                 //    console.log(countriesSet2);
                     const newArray = countriesSet.map((e,i)=>{

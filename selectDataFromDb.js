@@ -8,7 +8,7 @@ module.exports = function selectDataFromDb() {
             let collections = [
                 'forebetStrategy',
                 'forebetValueBetsBiggerThan1',
-                'forebetValueBetsBiggerThan3',
+                'forebetValueBetsBiggerThan3', 
                 'forebetValueBetsBiggerThan5',
                 'forebetValueBetsBiggerThan7',
                 'vitisportStrategy',
