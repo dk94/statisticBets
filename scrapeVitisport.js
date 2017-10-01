@@ -11,8 +11,8 @@ const namesOfTeams = {
     'Real Betis': 'Real Betis Sevilla',
     'Real Madrid': 'Real Madrid CF',
     'CD Leganes': 'CD Leganés',
-    'Real Sociedad': 'Levante UD',
-    'Levante UD': 'Real Sociedad',
+    'Real Sociedad': 'Real Sociedad',
+    'Levante UD': 'Levante UD',
     'Getafe CF': 'Getafe CF',
     'Athletic Bilbao': 'Athletic Club Bilbao',
     'RCD Espanyol': 'Espanyol Barcelona',
@@ -42,8 +42,8 @@ const namesOfTeams = {
     'Toulouse FC': 'Toulouse FC',
     'Stade Rennais': 'Stade Rennais FC',
     'Amiens SC': 'Amiens SC',
-    'Dijon FCO': 'Lille Olympique SC',
-    'Lille OSC': 'Dijon Football Cote d´Or',
+    'Dijon FCO': 'Dijon Football Cote d´Or',
+    'Lille OSC': 'Lille Olympique SC',
     'Strasbourg': 'Racing Club Strasbourg',
     'FC Metz': 'FC Metz',
 
@@ -92,8 +92,8 @@ const namesOfTeams = {
     'Heracles Almelo': 'Heracles Almelo',
     'FC Groningen': 'FC Groningen',
     'SBV Excelsior': 'Excelsior Rotterdam',
-    'NAC Breda': 'ADO Den Haag',
-    'ADO Den Haag': 'NAC Breda',
+    'NAC Breda': 'NAC Breda',
+    'ADO Den Haag': 'ADO Den Haag',
     'Sparta Rotterdam': 'Sparta Rotterdam',
     'FC Twente': 'FC Twente ´65',
     'Willem II Tilburg': 'Willem II Tilburg',
@@ -189,8 +189,8 @@ const namesOfTeams = {
     'VfL Bochum': 'VfL Bochum 1848',
     'Jahn Regensburg': 'SSV Jahn Regensburg',
     'Dynamo Dresden': '1. FC Dynamo Dresden',
-    'MSV Duisburg': '1. FC Heidenheim 1846',
-    'Heidenheim': 'MSV Duisburg',
+    'MSV Duisburg': 'MSV Duisburg',
+    'Heidenheim': '1. FC Heidenheim 1846',
     'Ingolstadt': 'FC Ingolstadt 04',
     'Greuther Fürth': 'SpVgg Greuther Fürth',
     'Kaiserslautern': '1.FC Kaiserslautern',
@@ -210,7 +210,7 @@ const namesOfTeams = {
     'Kalmar FF': 'Kalmar FF',
     'GIF Sundsvall': 'GIF Sundsvall',
     'Jönköpings Södra': 'Jönköpings Södra IF',
-    'Halmstads BK': 'Athletic FC United',
+    'Halmstads BK': 'Halmstads BK',
 
     //Czech1
     'Viktoria Plzen': 'FC Viktoria Plzeň',
@@ -219,8 +219,8 @@ const namesOfTeams = {
     'Sparta Praha': 'AC Sparta Praha',
     'Slovan Liberec': 'FC Slovan Liberec',
     'FK Jablonec': 'FK Jablonec 97',
-    'FK Zlin': 'Bohemians 1905 Praha',
-    'Bohemians 1905': 'FC Tescoma Zlín',
+    'FK Zlin': 'FC Tescoma Zlín',
+    'Bohemians 1905': 'Bohemians 1905 Praha',
     'Dukla Praha': 'FK Dukla Praha',
     'Teplice': 'FK Teplice',
     'Slovacko': '1. FC Slovácko',
@@ -243,8 +243,8 @@ const namesOfTeams = {
     'Arka Gdynia': 'Arka Gdynia',
     'Wisla Plock': 'Wisla Plock',
     'Lechia Gdansk': 'Lechia Gdansk',
-    'Pogon Szczecin': 'LKS Nieciecza',
-    'Nieciecza KS': 'Pogon Szczecin',
+    'Pogon Szczecin': 'Pogon Szczecin',
+    'Nieciecza KS': 'LKS Nieciecza',
     'Piast Gliwice': 'Piast Gliwice',
     'Cracovia': 'KS Cracovia Krakow',
 
@@ -302,25 +302,28 @@ const namesOfTeams = {
     'Genclerbirligi': 'Gençlerbirligi S.K.',
     'Osmanlispor FK': 'Osmanlispor',
 
-    //Germany2
-    'Fortuna Düsseldorf': 'Fortuna Düsseldorf',
-    'Nürnberg': '1. FC Nürnberg',
-    'Holstein Kiel': 'Holstein Kiel',
-    'SV Darmstadt': 'SV Darmstadt 98',
-    'SV Sandhausen': 'SV 1916 Sandhausen',
-    'Arminia Bielefeld': 'Arminia Bielefeld',
-    'Erzgebirge Aue': 'FC Erzgebirge Aue',
-    'St. Pauli': 'FC St. Pauli 1910',
-    'Union Berlin': '1. FC Union Berlin',
-    'E. Braunschweig': 'Eintracht Braunschweig',
-    'VfL Bochum': 'VfL Bochum 1848',
-    'Jahn Regensburg': 'SSV Jahn Regensburg',
-    'Dynamo Dresden': '1. FC Dynamo Dresden',
-    'MSV Duisburg': '1. FC Heidenheim 1846',
-    'Heidenheim': 'MSV Duisburg',
-    'Ingolstadt': 'FC Ingolstadt 04',
-    'Greuther Fürth': 'SpVgg Greuther Fürth',
-    'Kaiserslautern': '1.FC Kaiserslautern',
+    //England1
+    'Manchester City':'Manchester City',
+    'Manchester United':'Manchester United',
+    'Tottenham':'Tottenham Hotspur',
+    'Chelsea FC':'Chelsea London',
+    'Arsenal':'Arsenal London',
+    'Watford FC':'FC Watford',
+    'Liverpool FC':'FC Liverpool',
+    'Burnley FC':'Burnley FC',
+    'Newcastle Utd':'Newcastle United',
+    'West Bromwich':'West Bromwich Albion',
+    'Huddersfield':'Huddersfield Town',
+    'Southampton':'Southampton FC',
+    'Stoke City':'Stoke City',
+    'Brighton':'Brighton Hove Albion',
+    'West Ham':'West Ham United',
+    'Everton FC':'Everton Liverpool',
+    'Leicester City':'Leicester City',
+    'Swansea City':'Swansea City',
+    'Bournemouth':'AFC Bournemouth',
+    'Crystal Palace':'Crystal Palace',
+
 
     //England2
     'Cardiff City': 'Cardiff City',
@@ -347,10 +350,29 @@ const namesOfTeams = {
     'Birmingham City': 'Birmingham City',
     'Sunderland': 'Sunderland AFC',
     'Bolton Wanderers': 'Bolton Wanderers',
+    
+    //Norway1
+    'Rosenborg BK':'Rosenborg BK Trondheim',
+    'Sarpsborg 08':'Sparta Sarpsborg',
+    'SK Brann':'SK Brann Bergen',
+    'Molde FK':'Molde FK',
+    'FK Haugesund':'FK Haugesund',
+    'Stromsgodset IF':'Stromsgodset IF',
+    'Odd BK':'Odd Grenland BK',
+    'Sandefjord':'Sandefjord Fotball',
+    'Stabaek':'Stabaek IF',
+    'Kristiansund BK':'Kristiansund BK',
+    'Lillestrom SK':'Lilleström SK',
+    'Valerenga':'Valerenga IF Oslo',
+    'Sogndal':'Sogndal IS',
+    'Aalesund FK':'Aalesund FK',
+    'Tromso IL':'Tromsö IL',
+    'Viking FK':'FK Viking Stavanger',
+
 
     //Spain2
-    'Sporting Gijón': 'CD Numancia de Soria',
-    'CD Numancia': 'Sporting de Gijón',
+    'Sporting Gijón': 'Sporting de Gijón',
+    'CD Numancia': 'CD Numancia de Soria',
     'Cadiz CF': 'Cádiz CF',
     'CD Tenerife': 'CD Tenerife',
     'UD Almería': 'UD Almería',
@@ -366,11 +388,33 @@ const namesOfTeams = {
     'Granada CF': 'Granada 74 CF',
     'CF Reus Deportiu': 'Reus Deportiu',
     'Córdoba CF': 'Córdoba CF',
-    'Real Zaragoza': 'Lorca Deportiva CF',
-    'La Hoya Lorca': 'Real Zaragoza',
+    'Real Zaragoza': 'Real Zaragoza',
+    'La Hoya Lorca': 'Lorca Deportiva CF',
     'Gimnàstic Tarragona': 'Gimnastic de Tarragona',
     'Albacete Balompie': 'Albacete Balompié',
     'Sevilla Atletico': 'Sevilla Atlético',
+
+    //Italy1
+    'SSC Napoli':'SSC Napoli',
+    'Juventus FC':'Juventus Torino',
+    'Inter Milano':'Inter Milano',
+    'Lazio':'SS Lazio Roma',
+    'AS Roma':'AS Roma',
+    'AC Milan':'AC Milano',
+    'Torino FC':'FC Torino',
+    'Sampdoria':'UC Sampdoria Genoa',
+    'Bologna FC':'Bologna FC',
+    'Atalanta Bergamo':'Atalanta Bergamo',
+    'ChievoVerona':'AC Chievo Verona',
+    'Fiorentina':'ACF Fiorentina',
+    'Udinese Calcio':'Udinese Calcio',
+    'Cagliari Calcio':'Cagliari Calcio',
+    'SPAL 1907':'SPAL Ferrara',
+    'Sassuolo Calcio':'Sassuolo Calcio',
+    'FC Crotone':'FC Crotone',
+    'Genoa':'Genoa CFC',
+    'Hellas Verona':'Hellas Verona',
+    'Benevento Calcio':'Benevento Calcio',
 
     //Italy2
     'Perugia Calcio': 'Perugia Calcio',
@@ -389,8 +433,8 @@ const namesOfTeams = {
     'Spezia Calcio': 'AC Spezia 1906',
     'Brescia Calcio': 'Brescia Calcio',
     'Novara': 'Novara Calcio',
-    'Virtus Entella': 'Ascoli Calcio',
-    'Ascoli': 'Virtus Entella',
+    'Virtus Entella': 'Virtus Entella',
+    'Ascoli': 'Ascoli Calcio',
     'US Foggia': 'Foggia Calcio',
     'Ternana Calcio': 'Ternana Calcio',
     'Cesena': 'AC Cesena',
@@ -409,8 +453,8 @@ const namesOfTeams = {
     'Floridsdorfer AC': 'Floridsdorfer AC',
 
     //Sweden2
-    'Dalkurd FF':'IF Brommapojkarna',
-    'Brommapojkarna':'Dalkurd FF',
+    'Dalkurd FF':'Dalkurd FF',
+    'Brommapojkarna':'IF Brommapojkarna',
     'FC Trelleborg':'Trelleborgs FF',
     'Helsingborg':'Helsingborgs IF',
     'Falkenbergs FF':'Falkenbergs FF',
@@ -459,14 +503,15 @@ function scrapeVitisport(fixtures) {
 
                             const Team1 = countriesSet[i].children[1].children[0].children[0].data;
                             const Team2 = countriesSet[i].children[2].children[0].children[0].data;
-                            const predictionProbT1 = countriesSet[i].children[6].children[0].data;
-                            const predictionProbDraw = countriesSet[i].children[7].children[0].data;
-                            const predictionProbT2 = countriesSet[i].children[8].children[0].data;
+                            const predictionProbT1 = parseInt(countriesSet[i].children[6].children[0].data);
+                            const predictionProbDraw = parseInt(countriesSet[i].children[7].children[0].data);
+                            const predictionProbT2 = parseInt(countriesSet[i].children[8].children[0].data);
                             if (namesOfTeams[homeTeam] === Team1 && namesOfTeams[awayTeam] === Team2) {
+
                                 fixture['predictionVitisport'] = definePrediction(predictionProbT1, predictionProbDraw, predictionProbT2)
-                                fixture['predictionVitiProbT1'] = parseInt(predictionProbT1);
-                                fixture['predictionVitiProbDraw'] = parseInt(predictionProbDraw);
-                                fixture['predictionVitiProbT2'] = parseInt(predictionProbT2);
+                                fixture['predictionVitiProbT1'] = predictionProbT1;
+                                fixture['predictionVitiProbDraw'] = predictionProbDraw;
+                                fixture['predictionVitiProbT2'] = predictionProbT2;
                             }
                         }
                     }
@@ -478,6 +523,8 @@ function scrapeVitisport(fixtures) {
 }
 
 function definePrediction(probsH, probsD, probsA) {
+    if(!probsA||!probsD||!probsH)
+        return '';
     if (probsH > probsD) {
         if (probsH > probsA)
             return 1;

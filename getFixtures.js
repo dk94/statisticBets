@@ -11,6 +11,7 @@ module.exports = function getFixtures() {
     .then((forbetFixtures)=>scrapeVitisportAsync(forbetFixtures))
     .then((fixturesWithViti)=>scrapeResults(fixturesWithViti))
     .then((fixturesWithOdds)=>fixturesWithOdds)
+        .catch((er)=>{console.log(er)})
 }
 
 

@@ -15,7 +15,7 @@ module.exports = function selectDataFromDb() {
                 'vitisportValueBetsBiggerThan1',
                 'vitisportValueBetsBiggerThan3',
                 'vitisportValueBetsBiggerThan5',
-                'vitisportValueBetsBiggerThan6',
+                'vitisportValueBetsBiggerThan7',
             ];
 
             Promise.all(collections.map((collection) => {
@@ -26,6 +26,7 @@ module.exports = function selectDataFromDb() {
             .then((result)=>{
                 resolve(result)
             })
+                .catch((e)=>console.log(e))
 
 
         })

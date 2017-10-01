@@ -18,14 +18,17 @@ function outputCalculation(dbResults){
 }
 
 function calculateMatch(match){
-    let result = match.result.split(' - ');
+    let result;
+    if(match.result){
+    result = match.result.split(' - ');
     if(result.length == 2){
         if(result[0]>result[1])
             return match.prediction == 1;
         else if(result[0] == result[1])
             return match.prediction === 'X'
         else
-            return match.prediction === 2;
+            return match.prediction == 2;
+    }
     }
     else
         return false;

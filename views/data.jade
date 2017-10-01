@@ -42,16 +42,18 @@ html
                             i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
                             i(class='remove fa fa-times', style='float:right')
 
-       
-                   
+
+
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 1%
-            if fixturesWithAllPredictions[1].bank<0
-                h3(class='text-center') Bank
-                    span(style='color:red')!= " "+fixturesWithAllPredictions[1].bank+"$"
+            if fixturesWithAllPredictions[1].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[1].bank + "$"
             else
-                h3(class='text-center') Bank
-                    span(style='color:green')!= " "+fixturesWithAllPredictions[1].bank+"$"
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[1].bank + "$"
+                h3(class='text-center') Percent Of Successfull Matches:
+                    span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[1].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
                 th Date
@@ -67,7 +69,7 @@ html
                 th Match Result
                 th Settings
                 for fixture in fixturesWithAllPredictions[1]
-                    tr(style='background-color:gray')
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -85,12 +87,14 @@ html
 
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 3%
-            if fixturesWithAllPredictions[2].bank<0
-                h3(class='text-center') Bank
-                    span(style='color:red')!= " "+fixturesWithAllPredictions[2].bank+"$"
+            if fixturesWithAllPredictions[2].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[2].bank + "$"
             else
-                h3(class='text-center') Bank
-                    span(style='color:green')!= " "+fixturesWithAllPredictions[2].bank+"$"
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[2].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[2].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
                 th Date
@@ -106,7 +110,7 @@ html
                 th Match Result
                 th Settings
                 for fixture in fixturesWithAllPredictions[2]
-                    tr(style='background-color:gray')
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -121,16 +125,18 @@ html
                         td
                             i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
                             i(class='remove fa fa-times', style='float:right')
-    
+
 
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 5%
-            if fixturesWithAllPredictions[3].bank<0
-                h3(class='text-center') Bank
-                    span(style='color:red')!= " "+fixturesWithAllPredictions[3].bank+"$"
+            if fixturesWithAllPredictions[3].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[3].bank + "$"
             else
-                h3(class='text-center') Bank
-                    span(style='color:green')!= " "+fixturesWithAllPredictions[3].bank+"$"
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[3].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[3].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
                 th Date
@@ -146,7 +152,7 @@ html
                 th Match Result
                 th Settings
                 for fixture in fixturesWithAllPredictions[3]
-                    tr(style='background-color:gray')
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -161,15 +167,17 @@ html
                         td
                             i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
                             i(class='remove fa fa-times', style='float:right')
-        
+
         div(class='new_table')
             h1(class='text-center') Forbet Value Bets Bigger Than 7%
-            if fixturesWithAllPredictions[4].bank<0
-                h3(class='text-center') Bank
-                    span(style='color:red')!= " "+fixturesWithAllPredictions[4].bank+"$"
+            if fixturesWithAllPredictions[4].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[4].bank + "$"
             else
-                h3(class='text-center') Bank
-                    span(style='color:green')!= " "+fixturesWithAllPredictions[4].bank+"$"
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[4].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[4].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
                 th Date
@@ -185,7 +193,7 @@ html
                 th Match Result
                 th Settings
                 for fixture in fixturesWithAllPredictions[4]
-                    tr(style='background-color:gray')
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -199,18 +207,57 @@ html
                         td!= fixture.result
                         td
                             i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
-                            i(class='remove fa fa-times', style='float:right')   
-         
+                            i(class='remove fa fa-times', style='float:right')
+
         div(class='new_table')
             h1(class='text-center') Vitisport Strategy
-            if fixturesWithAllPredictions[5].bank<0
-                h3(class='text-center') Bank
-                    span(style='color:red')!= " "+fixturesWithAllPredictions[5].bank+"$"
+            if fixturesWithAllPredictions[5].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[5].bank + "$"
             else
-                h3(class='text-center') Bank
-                    span(style='color:green')!= " "+fixturesWithAllPredictions[5].bank+"$"
-            h3(class='text-center') Percent Of Successfull Matches
-                    span(style='color:green')!= " "+fixturesWithAllPredictions[5].percentOfSuccessfullMatches+"%"
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[5].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[5].percentOfSuccessfullMatches * 100 + "%"
+            table(class='table fixtures')
+                    thead
+                    th Date
+                    th Tournament
+                    th HT
+                    th AT
+                    th Probability Home
+                    th Probability Draw
+                    th Probability Away
+                    th Odds
+                    th Prediction
+                    th Match Result
+                    th Settings
+                    for fixture in fixturesWithAllPredictions[5]
+                        tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                            td!= fixture.date
+                            td!= fixture.natLeague
+                            td!= fixture.homeTeamName
+                            td!= fixture.awayTeamName
+                            td!= fixture.predictionVitiProbT1
+                            td!= fixture.predictionVitiProbDraw
+                            td!= fixture.predictionVitiProbT2
+                            td!= fixture.odds
+                            td!= fixture.prediction
+                            td!= fixture.result
+                            td
+                                i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                                i(class='remove fa fa-times', style='float:right')
+
+        div(class='new_table')
+            h1(class='text-center') Vitisport Value Bets Bigger Than 1%
+            if fixturesWithAllPredictions[6].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[6].bank + "$"
+            else
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[6].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[6].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
                 th Date
@@ -222,10 +269,11 @@ html
                 th Probability Away
                 th Odds
                 th Prediction
+                th Value
                 th Match Result
                 th Settings
-                for fixture in fixturesWithAllPredictions[5]
-                    tr(style='background-color:gray')
+                for fixture in fixturesWithAllPredictions[6]
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -235,8 +283,128 @@ html
                         td!= fixture.predictionVitiProbT2
                         td!= fixture.odds
                         td!= fixture.prediction
+                        td!= fixture.value
                         td!= fixture.result
                         td
                             i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
                             i(class='remove fa fa-times', style='float:right')
-    
+        div(class='new_table')
+            h1(class='text-center') Vitisport Value Bets Bigger Than 3%
+            if fixturesWithAllPredictions[7].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[7].bank + "$"
+            else
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[7].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[7].percentOfSuccessfullMatches * 100 + "%"
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th Odds
+                th Prediction
+                th Value
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[7]
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionVitiProbT1
+                        td!= fixture.predictionVitiProbDraw
+                        td!= fixture.predictionVitiProbT2
+                        td!= fixture.odds
+                        td!= fixture.prediction
+                        td!= fixture.value
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')
+        div(class='new_table')
+            h1(class='text-center') Vitisport Value Bets Bigger Than 5%
+            if fixturesWithAllPredictions[8].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[8].bank + "$"
+            else
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[8].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[8].percentOfSuccessfullMatches * 100 + "%"
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th Odds
+                th Prediction
+                th Value
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[8]
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionVitiProbT1
+                        td!= fixture.predictionVitiProbDraw
+                        td!= fixture.predictionVitiProbT2
+                        td!= fixture.odds
+                        td!= fixture.prediction
+                        td!= fixture.value
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')
+        div(class='new_table')
+            h1(class='text-center') Vitisport Value Bets Bigger Than 7%
+            if fixturesWithAllPredictions[9].bank < 0
+                h3(class='text-center') Bank:
+                    span(style='color:red')!= " " + fixturesWithAllPredictions[9].bank + "$"
+            else
+                h3(class='text-center') Bank:
+                    span(style='color:green')!= " " + fixturesWithAllPredictions[9].bank + "$"
+            h3(class='text-center') Percent Of Successfull Matches:
+                span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[9].percentOfSuccessfullMatches * 100 + "%"
+            table(class='table fixtures')
+                thead
+                th Date
+                th Tournament
+                th HT
+                th AT
+                th Probability Home
+                th Probability Draw
+                th Probability Away
+                th Odds
+                th Prediction
+                th Value
+                th Match Result
+                th Settings
+                for fixture in fixturesWithAllPredictions[9]
+                    tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.date
+                        td!= fixture.natLeague
+                        td!= fixture.homeTeamName
+                        td!= fixture.awayTeamName
+                        td!= fixture.predictionVitiProbT1
+                        td!= fixture.predictionVitiProbDraw
+                        td!= fixture.predictionVitiProbT2
+                        td!= fixture.odds
+                        td!= fixture.prediction
+                        td!= fixture.value
+                        td!= fixture.result
+                        td
+                            i(class='edit fa fa-pencil', onclick="editItem('" + fixture.result + "')", style='float:left')
+                            i(class='remove fa fa-times', style='float:right')

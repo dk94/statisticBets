@@ -1,7 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
 const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-today';
-const leagues = ['Fi1', 'Es1', 'Ru1','De1','Dk1','CH','De2','At2','Tr1','Se1','No1','Se2','Nl1','Nl2','Cz1','It2','Es2','Be1','CH','Fr1','Sc1','Pl1'];
+const leagues = ['Fi1', 'Es1', 'Ru1','De1','Dk1','CH','De2','At2','Tr1','Se1','No1','Se2','Nl1','Nl2','Cz1','It2','Es2','Be1','Fr1','Sc1','Pl1','PR','It1'];
 
 // The structure of our request call
 // The first parameter is our URL

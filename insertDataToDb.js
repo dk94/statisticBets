@@ -43,29 +43,52 @@ function forebetStrategy(data, db) {
 
     return data.map((document) => {
         const odds = defineTypeOfOdds(document.predictionForbet, document.homeTeamOdds, document.drawOdds, document.awayTeamOdds);
-        return dbForebet.update(
-            {
-                homeTeamName: document.homeTeamName,
-                awayTeamName: document.awayTeamName,
-                date: document.date
-            },
-            {
-                homeTeamName: document.homeTeamName,
-                awayTeamName: document.awayTeamName,
-                date: document.date,
-                natLeague: document.natLeague,
-                predictionForbetProbT1: document.predictionForbetProbT1,
-                predictionForbetProbDraw: document.predictionForbetProbDraw,
-                predictionForbetProbT2: document.predictionForbetProbT2,
-                prediction: document.predictionForbet,
-                odds,
-                result: document.result
 
-            },
-            {
-                upsert: true,
-                ordered: true
-            })
+        if(odds) {
+            return dbForebet.update(
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date
+                },
+
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date,
+                    natLeague: document.natLeague,
+                    predictionForbetProbT1: document.predictionForbetProbT1,
+                    predictionForbetProbDraw: document.predictionForbetProbDraw,
+                    predictionForbetProbT2: document.predictionForbetProbT2,
+                    prediction: document.predictionForbet,
+                    odds:odds,
+                    result: document.result
+
+                },
+                {
+                    upsert: true,
+                    ordered: true
+                })
+        }
+        else if(document.result !=='No result'){
+            return dbForebet.update(
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date
+                },
+
+                {$set:
+                    {
+                        result: document.result
+
+                    }},
+                {
+                    upsert: false,
+                    ordered: true
+                })
+
+        }
     })
 }
 function vitisportStrategy(data, db) {
@@ -74,30 +97,50 @@ function vitisportStrategy(data, db) {
 
     return data.map((document) => {
         const odds = defineTypeOfOdds(document.predictionVitisport, document.homeTeamOdds, document.drawOdds, document.awayTeamOdds);
-        return dbVitisport.update(
-            {
-                homeTeamName: document.homeTeamName,
-                awayTeamName: document.awayTeamName,
-                date: document.date
-            },
-            {
-                homeTeamName: document.homeTeamName,
-                awayTeamName: document.awayTeamName,
-                date: document.date,
-                natLeague: document.natLeague,
-                predictionVitiProbT1: document.predictionVitiProbT1,
-                predictionVitiProbDraw: document.predictionVitiProbDraw,
-                predictionVitiProbT2: document.predictionVitiProbT2,
-                prediction: document.predictionVitisport,
-                odds,
-                result: document.result
+        if(document.predictionVitiProbT1 && odds) {
+            return dbVitisport.update(
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date
+                },
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date,
+                    natLeague: document.natLeague,
+                    predictionVitiProbT1: document.predictionVitiProbT1,
+                    predictionVitiProbDraw: document.predictionVitiProbDraw,
+                    predictionVitiProbT2: document.predictionVitiProbT2,
+                    prediction: document.predictionVitisport,
+                    odds:odds,
+                    result: document.result
 
-            },
-            {
-                upsert: true,
-                ordered: true
-            }
-        )
+                },
+                {
+                    upsert: true,
+                    ordered: true
+                }
+            )
+        }
+        else if(document.result!=='No result'){
+            return dbVitisport.update(
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date
+                },
+                {$set:
+                {
+                    result: document.result
+
+                }},
+                {
+                    upsert: false,
+                    ordered: true
+                })
+
+        }
     })
 }
 function forebetValueBets(data, db, nameOfDb, tollerance) {
@@ -135,6 +178,25 @@ function forebetValueBets(data, db, nameOfDb, tollerance) {
                 },
                 {
                     upsert: true,
+                    ordered: true
+                }
+            )
+        }
+        else if(document.result !== 'No result'){
+            return dbforebetValueBetsBiggerThan.update(
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date
+                },
+
+                {$set:
+                    {
+                        result: document.result
+
+                    }},
+                {
+                    upsert: false,
                     ordered: true
                 }
             )
@@ -179,6 +241,25 @@ function vitisportValueBets(data, db, nameOfDb, tollerance) {
                 },
                 {
                     upsert: true,
+                    ordered: true
+                }
+            )
+        }
+        else if(document.result !== 'No result'){
+            return dbVitisportValueBetsBiggerThan.update(
+                {
+                    homeTeamName: document.homeTeamName,
+                    awayTeamName: document.awayTeamName,
+                    date: document.date
+                },
+
+                {$set:
+                    {
+                        result: document.result
+
+                    }},
+                {
+                    upsert: false,
                     ordered: true
                 }
             )

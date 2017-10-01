@@ -20,6 +20,9 @@ app.get('/scraper', function (req, res) {
             fixtures = fixturesWithAllPredictions;
             res.send(JSON.stringify(fixturesWithAllPredictions));
         })
+        .catch(()=>{
+        console.log('trable')
+        })
 });
 app.get('/save', function (req, res) {
     Promise.all(insertData(fixtures))
