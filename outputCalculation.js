@@ -5,7 +5,7 @@ function outputCalculation(dbResults){
         collection.forEach((match)=>{
             match.isPassed = calculateMatch(match);
             if(match.isPassed){
-                bank+=(match.odds * 5);
+                bank+=(match.odds * 5)-5;
                 successfullBets++;
             }
             else
