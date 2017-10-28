@@ -15,6 +15,7 @@ html
                     span(style='color:gray font-weight:bold')!= " "+fixturesWithAllPredictions[0].percentOfSuccessfullMatches*100+"%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -28,6 +29,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[0]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -56,6 +58,7 @@ html
                     span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[1].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -70,6 +73,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[1]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -97,6 +101,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[2].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -111,6 +116,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[2]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -139,6 +145,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[3].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -153,6 +160,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[3]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -180,6 +188,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[4].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -194,6 +203,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[4]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -221,6 +231,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[5].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                     thead
+                    th #
                     th Date
                     th Tournament
                     th HT
@@ -234,6 +245,7 @@ html
                     th Settings
                     for fixture in fixturesWithAllPredictions[5]
                         tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                            td!= fixture.count
                             td!= fixture.date
                             td!= fixture.natLeague
                             td!= fixture.homeTeamName
@@ -260,6 +272,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[6].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -274,6 +287,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[6]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -300,6 +314,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[7].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -314,6 +329,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[7]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -340,6 +356,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[8].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -354,6 +371,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[8]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName
@@ -380,6 +398,7 @@ html
                 span(style='color:gray font-weight:bold')!= " " + fixturesWithAllPredictions[9].percentOfSuccessfullMatches * 100 + "%"
             table(class='table fixtures')
                 thead
+                th #
                 th Date
                 th Tournament
                 th HT
@@ -394,6 +413,7 @@ html
                 th Settings
                 for fixture in fixturesWithAllPredictions[9]
                     tr(style=fixture.isPassed ? 'background-color:green' : 'background-color:red')
+                        td!= fixture.count
                         td!= fixture.date
                         td!= fixture.natLeague
                         td!= fixture.homeTeamName

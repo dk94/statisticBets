@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var port = process.env.port || 1340;
+var port = process.env.PORT;
 const getFixtures = require('./getFixtures');
 const insertData = require('./insertDataToDb');
 const selectDataFromDb = require('./selectDataFromDb');

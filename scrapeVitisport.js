@@ -280,6 +280,9 @@ const namesOfTeams = {
     'GIF Sundsvall': 'GIF Sundsvall',
     'Jönköpings Södra': 'Jönköpings Södra IF',
     'Halmstads BK': 'Halmstads BK',
+    'AFC Eskilstuna':'Athletic FC United',
+    
+    
 
     //Czech1
     'Viktoria Plzen': 'FC Viktoria Plzeň',
@@ -331,8 +334,8 @@ const namesOfTeams = {
     'GD Chaves': 'GD Chaves',
     'Boavista FC': 'Boavista Porto',
     'Paços de Ferreira': 'FC Pacos de Ferreira',
-    'Portimonense SC': 'GD Estoril Praia',
-    'GD Estoril': 'Portimonense SC',
+    'Portimonense SC': 'Portimonense SC',
+    'GD Estoril': 'GD Estoril Praia',
     'Moreirense FC': 'Moreirense FC',
     'CD Tondela': 'CD Tondela',
     'CD Aves': 'CD Aves',
@@ -392,6 +395,7 @@ const namesOfTeams = {
     'Swansea City': 'Swansea City',
     'Bournemouth': 'AFC Bournemouth',
     'Crystal Palace': 'Crystal Palace',
+
 
 
     //England2
@@ -570,6 +574,28 @@ const namesOfTeams = {
     'FC Roskilde': 'FC Roskilde',
     'Brabrand IF': 'Brabrand FC',
     'Skive IK': 'Skive IK',
+    
+    //France2
+    'Stade Reims':'Stade de Reims',
+  'AC Ajaccio':'AC Ajaccio',
+  'Paris FC':'Paris FC 98',
+  'Le Havre AC':'Le Havre AC',
+  'Nîmes Olympique':'Nimes Olympique',
+  'FC Lorient':'FC Lorient Bretagne',
+  'Clermont Foot':'Clermont Foot Auvergne',
+  'Stade Brestois':'Stade Brestois 29',
+  'FC Sochaux':'FC Sochaux Montbélliard',
+  'US Orléans':'US Orléans',
+  'Chamois Niortais':'Chamois Niort',
+  'AJ Auxerre':'AJ Auxerre',
+  'Valenciennes FC':'Valenciennes FC',
+  'LB Châteauroux':'Berrichonne Chateauroux',
+  'Gazélec Ajaccio':'Gazélec Ajaccio',
+  'AS Nancy':'AS Nancy Lorraine',
+  'Bourg-Peronnas':'FC Bourg Péronnas',
+  'RC Lens':'Racing Club de Lens',
+  'US Quevilly':'US Quevilly',
+  'Tours FC':'Tours FC',
 
 
 };
@@ -616,6 +642,7 @@ function scrapeVitisport(fixtures) {
                         }
                     }
                 });
+                console.log(fixtures);
                 resolve(fixtures);
             }
         })

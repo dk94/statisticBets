@@ -1,5 +1,6 @@
 function outputCalculation(dbResults){
     dbResults.forEach((collection)=>{
+        let count=1;
         let bank = 0;
         let successfullBets = 0;
         collection.forEach((match)=>{
@@ -11,6 +12,7 @@ function outputCalculation(dbResults){
             else
                 bank-=5;
                 collection.percentOfSuccessfullMatches = successfullBets/collection.length;
+            match.count = count++;
         })
         collection.bank=(bank);
     });

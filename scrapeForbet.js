@@ -1,7 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
 const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-today';
-const leagues = ['Fi1', 'Es1', 'Ru1','De1','Dk1','CH','De2','At2','Tr1','Se1','No1','Se2','Nl1','Nl2','Cz1','It2','Es2','Be1','Fr1','Sc1','Pl1','PR','It1','Dk2','Gr1','Ie1','L1','L2'];
+const leagues = ['Fi1', 'Es1', 'Ru1','De1','Dk1','CH','De2','At2','Tr1','Se1','No1','Se2','Nl1','Nl2','Cz1','It2','Es2','Be1','Fr1','Sc1','Pl1','PR','It1','Dk2','Gr1','Ie1','L1','L2','Pt1','Fr2'];
 
 // The structure of our request call
 // The first parameter is our URL
@@ -35,27 +35,35 @@ function scrapeForbet() {
                     }
                 }).get();
                 const predictionProbsTeam1 = $(".schema tr[class*='tr_']>td:nth-child(2)").map((i, e) => {
+                    if(e.children[0]){
+                        
+                   
                     if (e.children[0].children) {
                         return e.children[0].children[0].data
                     }
                     else {
-                        return e.children[0].data
+                        return e.children[0].data?e.children[0].data:"No prediction"
                     }
+                }
                 }).get();
                 const predictionProbsDraw = $(".schema tr[class*='tr_'] td:nth-child(3)").map((i, e) => {
-                    if (e.children[0].children) {
-                        return e.children[0].children[0].data
-                    }
-                    else {
-                        return e.children[0].data
-                    }
+                      if(e.children[0]){
+                        if (e.children[0].children) {
+                            return e.children[0].children[0].data
+                        }
+                        else {
+                            return e.children[0].data?e.children[0].data:"No prediction"
+                        }
+                      }
                 }).get();
                 const predictionProbsTeam2 = $(".schema tr[class*='tr_'] td:nth-child(4)").map((i, e) => {
-                    if (e.children[0].children) {
-                        return e.children[0].children[0].data
-                    }
-                    else {
-                        return e.children[0].data
+                    if(e.children[0]){
+                        if (e.children[0].children) {
+                            return e.children[0].children[0].data
+                        }
+                        else {
+                            return e.children[0].data?e.children[0].data:"No prediction"
+                        }
                     }
                 }).get();
 
@@ -99,7 +107,7 @@ function scrapeForbet() {
                     });
 
                 });
-
+                
                 resolve(choseItems);
             }
         });

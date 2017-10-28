@@ -1,7 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
-const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-england/conference/standing';
-const url2 = 'http://www.vitibet.com/index.php?clanek=analyzy&sekce=fotbal&liga=angliepata&lang=en';
+const url = 'https://www.forebet.com/en/football-tips-and-predictions-for-france/ligue2/standing';
+const url2 = 'http://www.vitibet.com/index.php?clanek=analyzy&sekce=fotbal&liga=franciedruha&lang=en';
 
 // The structure of our request call
 // The first parameter is our URL
